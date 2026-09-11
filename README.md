@@ -6,6 +6,8 @@ A Beginner IoT Project using ESP32 and Firebase
 Control ESP32 Built-in LED from anywhere using Firebase Realtime Database.
 
 </p>
+<img width="462" height="300" alt="image" src="https://github.com/user-attachments/assets/3a55fc7a-380d-4186-8a6a-d422e93c99c9" />
+
 
 | Item           | Details           |
 | -------------- | ----------------- |
