@@ -7,6 +7,8 @@ Control ESP32 Built-in LED from anywhere using Firebase Realtime Database.
 
 </p>
 <img width="462" height="300" alt="image" src="https://github.com/user-attachments/assets/3a55fc7a-380d-4186-8a6a-d422e93c99c9" />
+<img width="1681" height="652" alt="image" src="https://github.com/user-attachments/assets/c63728ec-35fd-4b54-85e7-5393bc6e46cb" />
+
 
 
 | Item           | Details           |
