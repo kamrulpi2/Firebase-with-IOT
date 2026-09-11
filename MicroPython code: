@@ -1,0 +1,122 @@
+# ==========================================
+# ESP32 Firebase LED Control - MicroPython
+# ==========================================
+
+import network
+import time
+import urequests
+from machine import Pin
+
+
+# ================= WIFI =================
+
+WIFI_SSID = "AI"
+WIFI_PASSWORD = "12345678"
+
+
+# ================= FIREBASE =================
+
+DATABASE_URL = "h*******************m"
+
+# Firebase Web API Key (optional for public database)
+API_KEY = "A***********TXik"
+
+
+# ================= FIREBASE USER =================
+
+USER_EMAIL = "********.com"
+USER_PASSWORD = "123456"
+
+
+# ================= LED =================
+
+LED_PIN = 2
+
+led = Pin(LED_PIN, Pin.OUT)
+
+led.value(0)
+
+
+
+# ================= WIFI CONNECT =================
+
+def connect_wifi():
+
+    wifi = network.WLAN(network.STA_IF)
+    wifi.active(True)
+
+    wifi.connect(WIFI_SSID, WIFI_PASSWORD)
+
+    print("Connecting WiFi...")
+
+    while not wifi.isconnected():
+        print(".")
+        time.sleep(0.5)
+
+    print("\nWiFi Connected!")
+
+    print("IP Address:")
+    print(wifi.ifconfig()[0])
+
+
+
+# ================= FIREBASE READ =================
+
+def read_led_state():
+
+    try:
+
+        url = DATABASE_URL + "/LED/state.json"
+
+        response = urequests.get(url)
+
+        data = response.json()
+
+        response.close()
+
+
+        return data
+
+
+    except Exception as e:
+
+        print("Firebase Error:", e)
+
+        return None
+
+
+
+# ================= MAIN =================
+
+connect_wifi()
+
+
+print("Firebase Started...")
+
+
+while True:
+
+
+    led_state = read_led_state()
+
+
+    if led_state == 1:
+
+        led.value(1)
+
+        print("LED ON")
+
+
+    elif led_state == 0:
+
+        led.value(0)
+
+        print("LED OFF")
+
+
+    else:
+
+        print("Invalid Firebase Data")
+
+
+    time.sleep(0.5)
