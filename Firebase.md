@@ -78,8 +78,3 @@ For temporary testing, you can use:
     ".write": true
   }
 }
-```
-
-⚠️ **Don't leave this open for a real/public project.** It allows anyone with access to your database URL to read/write your database. For your Firebase email/password setup, it's better to use authenticated rules.
-
-If you send me a **screenshot of your Firebase Console**, I can point out exactly where to click.
