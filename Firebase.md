@@ -1,4 +1,3 @@
-Yes ভাই. If you mean **“Firebase Console কোথায় খুলব এবং কোথায় JSON/path set করব?”**, follow these steps:
 
 ### 1. Open Firebase Console
 
